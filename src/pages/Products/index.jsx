@@ -30,7 +30,6 @@ export default function Products() {
   if (loading) return <div>loading...</div>;
   if (error) return <div>error... {error.message}</div>;
 
-  console.log(products);
   return (
     <section className="Products">
       <div className="Search">
