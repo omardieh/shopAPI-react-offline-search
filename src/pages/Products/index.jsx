@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import useFetch from "../hooks/useFetch";
+import useFetch from "./../../hooks/useFetch";
+import { Link } from "react-router-dom";
 
 export default function Products() {
   const {
@@ -10,6 +11,7 @@ export default function Products() {
   } = useFetch("https://fakestoreapi.com");
 
   useEffect(() => {
+    if (!products);
     fetcher({ endPoint: "/products" });
   }, []);
 
@@ -28,6 +30,7 @@ export default function Products() {
   if (loading) return <div>loading...</div>;
   if (error) return <div>error... {error.message}</div>;
 
+  console.log(products);
   return (
     <section className="Products">
       <div className="Search">
@@ -37,13 +40,15 @@ export default function Products() {
       <div className="ProductsList">
         {filtered.map(({ id, title, image, description }) => (
           <article className="ProductCard" key={id}>
-            <h4> {title} </h4>
-            <img src={image} />
-            <p>
-              {description.length > 200
-                ? `${description.slice(0, 200)}...`
-                : description}
-            </p>
+            <Link to={`/products/${id}`}>
+              <h4> {title} </h4>
+              <img src={image} />
+              <p>
+                {description.length > 200
+                  ? `${description.slice(0, 200)}...`
+                  : description}
+              </p>
+            </Link>
           </article>
         ))}
       </div>

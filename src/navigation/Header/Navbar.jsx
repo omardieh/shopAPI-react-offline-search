@@ -5,7 +5,13 @@ export default function Navbar() {
   return (
     <nav>
       {navLinks.map(({ id, path, title }) => (
-        <NavLink key={id} to={path}>
+        <NavLink
+          key={id}
+          to={path}
+          style={({ isActive }) => ({
+            textDecoration: isActive ? "underline" : "",
+          })}
+        >
           {title}
         </NavLink>
       ))}
