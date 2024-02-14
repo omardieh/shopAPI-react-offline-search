@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow: scroll;
+  padding: 3em;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.Main::-webkit-scrollbar {
+  display: none;
+}
+
+#root header,
+#root footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  border: 1px solid #ccc;
+}
+#root header {
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  z-index: 999999 !important;
+}
+#root footer {
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+header nav a {
+  text-decoration: none;
+  padding: 0 1em;
+  text-transform: uppercase;
+}
+
+header i {
+  padding: 0 1em;
+}
+
+.Products {
+  display: flex;
+  flex-direction: column;
+}
+
+.Products .Search p {
+  align-self: flex-start;
+}
+
+.ProductsList {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2em;
+}
+
+.ProductCard {
+  width: 25%;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2em;
+}
+
+.ProductCard img {
+  width: 100%;
+  height: 15em;
+  object-fit: cover;
+  object-position: 50% 0;
+}
+
+.ProductCard h4 {
+  text-align: center;
+}
